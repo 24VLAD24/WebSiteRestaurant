@@ -1,4 +1,17 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using WebSiteRestaurant.Models.Data;
+using WebSiteRestaurant.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+
+builder.Services.AddDbContext<AppCtx>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddIdentity<User, IdentityRole>()
+    .AddEntityFrameworkStores<AppCtx>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
