@@ -9,10 +9,15 @@ namespace WebSiteRestaurant.Models.Data
         [Display(Name = "Имя")]
         public string FirstName { get; set; }
 
-        [Display(Name = "Дата Рождения")]
-        public string DateBirth { get; set; }
+        [Required(ErrorMessage = "Введите фамилию")]
+        [Display(Name = "Фамилия")]
+        public string LastName { get; set; }
+
+        [Required(ErrorMessage = "Введите дату рождения")]
+        [Display(Name = "Дата рождения")]
+        public DateTime DateBirth { get; set; }
 
         [Display(Name = "Дата регистрации")]
-        public string DateRegistration { get; set; }
+        public DateTime DateRegistration { get; set; }
     }
 }
