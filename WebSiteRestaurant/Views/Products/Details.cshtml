@@ -1,0 +1,30 @@
+﻿@model WebSiteRestaurant.Models.Data.Product
+
+@{
+    ViewData["Title"] = "Товары";
+}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Главная</a></li>
+        <li class="breadcrumb-item"><a asp-controller="Products" asp-action="Index">Товары</a></li>
+        <li class="breadcrumb-item active">Просмотр</li>
+    </ol>
+</nav>
+
+<h3>
+    <a class="btn text-dark" asp-action="Index" title="Вернуться к списку">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    Просмотр товара
+</h3>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+    </dl>
+</div>

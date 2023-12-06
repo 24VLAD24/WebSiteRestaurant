@@ -1,22 +1,22 @@
-﻿@model IEnumerable<WebSiteRestaurant.Models.Data.Category>
+﻿@model IEnumerable<WebSiteRestaurant.Models.Data.Product>
 
 @{
-    ViewData["Title"] = "Категории";
+    ViewData["Title"] = "Товары";
 }
 
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Главная</a></li>
-        <li class="breadcrumb-item active">Категории</li>
+        <li class="breadcrumb-item active">Товары</li>
     </ol>
 </nav>
 
-<h2>Категории</h2>
+<h2>Товары</h2>
 
 <h6>
     <a class="btn text-dark" asp-action="Create">
-        <i class="far fa-plus-square"></i> Добавить категорию
+        <i class="far fa-plus-square"></i> Добавить товар
     </a>
 </h6>
 
@@ -24,16 +24,27 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CategoryName)
+                @Html.DisplayNameFor(model => model.ProductName)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model) {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CategoryName)
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Category)
                 </td>
                 <td>
                     <a class="btn text-dark" title="Посмотреть подробнее" asp-action="Details" asp-route-id="@item.Id">

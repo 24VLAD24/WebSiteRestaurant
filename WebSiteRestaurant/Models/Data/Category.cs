@@ -13,5 +13,8 @@ namespace WebSiteRestaurant.Models.Data
         [Display(Name = "Наименование категории")]
 
         public string CategoryName { get; set; }
+
+        // Навигационные свойства
+        public ICollection<Product> Products { get; set; }
     }
 }

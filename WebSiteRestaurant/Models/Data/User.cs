@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebSiteRestaurant.Models.Data
 {
     public class User: IdentityUser
     {
+
         [Required(ErrorMessage = "Введите имя")]
         [Display(Name = "Имя")]
         public string FirstName { get; set; }
@@ -19,5 +21,8 @@ namespace WebSiteRestaurant.Models.Data
 
         [Display(Name = "Дата регистрации")]
         public DateTime DateRegistration { get; set; }
+
+        // Навигационные свойства
+        public ICollection<Order> Orders { get; set; }
     }
 }
